@@ -3,7 +3,6 @@ package com.dubu.service;
 import com.dubu.dao.BattlerMapper;
 import com.dubu.model.Battler;
 import com.dubu.model.BattlerExample;
-import com.dubu.model.Category;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
