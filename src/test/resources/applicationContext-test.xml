@@ -55,7 +55,7 @@
 
     <!-- enable component scanning (beware that this does not enable mapper scanning!) -->
     <context:component-scan base-package="com.dubu.dao" />
-    <!--<context:component-scan base-package="mybatis.mem" />-->
+    <!--<context:component-scan base-package="com.dubu.mem" />-->
 
     <!-- enable autowire -->
     <context:annotation-config />
@@ -84,7 +84,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="mybatis.mem" />
+        <property name="basePackage" value="com.dubu.mem" />
         <property name="sqlSessionFactoryBeanName" value="memsqlSessionFac"/>
     </bean>
 

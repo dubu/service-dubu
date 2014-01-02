@@ -3,8 +3,7 @@ package com.dubu.service;
 import com.dubu.dao.BattlerMapper;
 
 import com.dubu.dao.DubuMapper;
-import com.dubu.dao.mybatis.MybatisBattleMapper;
-import mybatis.mem.CategoryMapper;
+import com.dubu.mem.CategoryMapper;
 import com.dubu.model.Battler;
 
 import com.dubu.model.BattlerExample;
