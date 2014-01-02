@@ -1,4 +1,4 @@
-package com.dubu.mem;
+package mybatis.mem;
 
 /**
  * User: dubu

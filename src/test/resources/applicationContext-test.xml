@@ -55,7 +55,7 @@
 
     <!-- enable component scanning (beware that this does not enable mapper scanning!) -->
     <context:component-scan base-package="com.dubu.dao" />
-    <context:component-scan base-package="com.dubu.mem" />
+    <!--<context:component-scan base-package="mybatis.mem" />-->
 
     <!-- enable autowire -->
     <context:annotation-config />
@@ -64,27 +64,28 @@
     <tx:annotation-driven />
 
     <!-- define the SqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" name="sqlSessionFac">
         <property name="dataSource" ref="mysqlMyzzangDataSource" />
         <property name="mapperLocations" value="classpath:/mybatis/mapper/*.xml" />
         <property name="typeAliasesPackage" value="com.dubu.model" />
     </bean>
 
     <!-- define the SqlSessionFactory -->
-    <bean id="memsqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <bean id="memsqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" name="memsqlSessionFac">
         <property name="dataSource" ref="dataSource" />
-        <property name="mapperLocations" value="classpath:/mybatis/mapper/*.xml" />
+        <property name="mapperLocations" value="classpath:/mybatis/mem/*.xml" />
         <property name="typeAliasesPackage" value="com.dubu.model" />
     </bean>
 
     <!-- scan for mappers and let them be autowired -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.dubu.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFac"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.dubu.mem" />
-        <property name="sqlSessionFactory" ref="memsqlSessionFactory"/>
+        <property name="basePackage" value="mybatis.mem" />
+        <property name="sqlSessionFactoryBeanName" value="memsqlSessionFac"/>
     </bean>
 
 	<bean id="environmentVariablesConfiguration"

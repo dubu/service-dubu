@@ -1,8 +1,10 @@
 package com.dubu.service;
 
 import com.dubu.dao.BattlerMapper;
-import com.dubu.mem.CategoryMapper;
+
 import com.dubu.dao.DubuMapper;
+import com.dubu.dao.mybatis.MybatisBattleMapper;
+import mybatis.mem.CategoryMapper;
 import com.dubu.model.Battler;
 
 import com.dubu.model.BattlerExample;
@@ -40,8 +42,7 @@ public class DubuTest {
     @Autowired
     private CategoryMapper categoryMapper;
 
-    @Resource
-    private com.dubu.dao.mybatis.MybatisBattleMapper mybatisBattleMapper;
+//    @Resource MybatisBattleMapper mybatisBattleMapper;
 
     /**
      * critica test
@@ -75,10 +76,10 @@ public class DubuTest {
      */
     @Test
     public void daoImpleTest(){
-        BattlerExample battlerExample = new BattlerExample();
-        battlerExample.createCriteria().andBattleIdBetween(22197, 22203);
-        List<Battler> rs = mybatisBattleMapper.selectByExample(battlerExample);
-        log.error(rs);
+//        BattlerExample battlerExample = new BattlerExample();
+//        battlerExample.createCriteria().andBattleIdBetween(22197, 22203);
+//        List<Battler> rs = mybatisBattleMapper.selectByExample(battlerExample);
+//        log.error(rs);
     }
 
     /**
