@@ -1,0 +1,30 @@
+#* @vtlvariable name="ranker" type="com.dubu.model.Ranker" *#
+
+
+ ##springShowErrors("<br>" "")<br>
+#if($exception )
+
+    error $exception
+
+#end
+
+
+#if($ranker.mzUserId && $ranker.tournamentId )
+// UPDATE
+#set($mode  =  "update")
+#set($block  =  "readonly")
+#else
+// NEW
+#set($mode  =  "insert")
+
+#end
+
+<form id="rankerForm" name="rankerForm" action="/teacher/form" method="POST">
+    mzUserId #springFormInput("ranker.mzUserId" "$!{block}")
+    <br>tournamentId #springFormInput("ranker.tournamentId" "$!{block}")
+    <br>tournamentPoint #springFormInput("ranker.tournamentPoint")
+    <br>status #springFormInput("ranker.status")
+    <br>##springFormInput("ranker.regdttm")
+    <input type="submit"/>
+</form>
+
